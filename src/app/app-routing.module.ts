@@ -7,10 +7,6 @@ import { HomePageComponent } from './shared/pages/home-page/home-page.component'
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomePageComponent
-  },
-  {
     path: 'about',
     component: AboutComponent
   },
@@ -19,8 +15,12 @@ const routes: Routes = [
     component: ContactComponent
   },
   {
+    path: 'countries',
+    loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)
+  },
+  {
     path:'**',
-    redirectTo:''
+    redirectTo:'countries'
   }
 ]
 
